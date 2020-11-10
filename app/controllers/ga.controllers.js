@@ -2,7 +2,6 @@ const db = require("../models");
 const Post = db.ga;
 const Op = db.Sequelize.Op;
 
-//Create
 exports.create = (req, res) => {
   //Validate requests
   if (
@@ -18,7 +17,6 @@ exports.create = (req, res) => {
     return;
   }
 
-  //Create post
   const ga = {
     judul: req.body.judul,
     hadiah: req.body.hadiah,
@@ -39,7 +37,6 @@ exports.create = (req, res) => {
     });
 };
 
-//Find All
 exports.findAll = (req, res) => {
   const judul = req.query.judul;
   let condition = judul ? { judul: { [Op.like]: `%${judul}%` } } : null;
@@ -69,7 +66,6 @@ exports.findOne = (req, res) => {
     });
 };
 
-//Update a Post with ID
 exports.update = (req, res) => {
   const id = req.params.id;
 
@@ -94,7 +90,6 @@ exports.update = (req, res) => {
     });
 };
 
-//Delete a post
 exports.detele = (req, res) => {
   const id = req.params.id;
 
@@ -119,7 +114,6 @@ exports.detele = (req, res) => {
     });
 };
 
-//Delete All
 exports.deleteAll = (req, res) => {
   Post.destroy({
     where: {},
@@ -137,7 +131,6 @@ exports.deleteAll = (req, res) => {
     });
 };
 
-//Find GA Aktif
 exports.findActive = (req, res) => {
   Post.findAll({
     where: { aktif: true },
