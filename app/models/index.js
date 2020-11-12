@@ -17,6 +17,29 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.ga = require("./ga.model.js")(sequelize, Sequelize);
+db.ga = require("./ga.model")(sequelize, Sequelize);
+db.user = require("./user.model")(sequelize, Sequelize);
 
 module.exports = db;
+
+// GiveAway Schema
+
+// judul : string
+// hadiah : string
+// jumlah pemenang : number
+// Angka Awal : number
+// Angka Akhir : number
+
+// User Schema
+
+// nama : string
+// umur : number
+// email : string
+// password : string
+
+// Get GiveAway Schema
+
+// nama : string
+// email : string
+// password : string
+// nomor_pilihan : number

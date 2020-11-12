@@ -4,13 +4,21 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
     },
     umur: {
-      type: Sequelize.NUMBER,
+      type: Sequelize.INTEGER,
     },
     email: {
       type: Sequelize.STRING,
+      validate: {
+        isEmail: {
+          msg: "Email must in format foo@bar.com",
+        },
+      },
     },
     password: {
       type: Sequelize.STRING,
+    },
+    aktif: {
+      type: Sequelize.BOOLEAN,
     },
   });
 
